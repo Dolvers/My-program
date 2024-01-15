@@ -80,26 +80,37 @@ namespace My_program
             String passUser = passField.Text;
 
             DB db = new DB();
+            if (!db.CheckConnection())
+            {
+                MessageBox.Show("Немає зв'язку з базою даних");
+                return;
+            }
 
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL AND `pass` = @uP", db.GetConnection());
-            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
-            command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
+            string query = "SELECT * FROM `users` WHERE `login` = @uL AND `pass` = @uP";
 
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
+            using (MySqlCommand command = new MySqlCommand(query, db.GetConnection()))
             {
-                this.Hide();
-                MainForms MainForms = new MainForms();
-                MainForms.Show();
+                command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
+                command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
+
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+
+                if (table.Rows.Count > 0)
+                {
+                    this.Hide();
+                    MainForms mainForm = new MainForms();
+                    mainForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Ви не Увійшли");
+                }
             }
-            else
-                MessageBox.Show("Ви не Увійшли");
         }
 
         private void loginField_Enter(object sender, EventArgs e)

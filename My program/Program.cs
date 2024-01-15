@@ -9,7 +9,7 @@ namespace My_program
     internal static class Program
     {
         /// <summary>
-        /// Главная точка входа для приложения.
+        /// Точка входу.
         /// </summary>
         [STAThread]
         static void Main()

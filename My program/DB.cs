@@ -10,7 +10,7 @@ namespace My_program
 {
     internal class DB
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=itproger");
+        MySqlConnection connection = new MySqlConnection("server=db4free.net;port=3306;username=dolvers;password=A1234554321s.;database=dolvers");
 
         public void openConnection()
         {
@@ -33,15 +33,7 @@ namespace My_program
             try
             {
                 connection.Open();
-
-                if (connection.State == ConnectionState.Open)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return connection.State == ConnectionState.Open;
             }
             catch (Exception ex)
             {
