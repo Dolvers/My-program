@@ -32,6 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Close_button = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +52,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(43)))), ((int)(((byte)(153)))));
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.Close_button);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -88,6 +90,22 @@
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 36);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "x";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
+            this.label2.MouseLeave += new System.EventHandler(this.label2_MouseLeave);
+            // 
             // MainForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -111,5 +129,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Close_button;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

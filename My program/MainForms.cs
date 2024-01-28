@@ -60,5 +60,22 @@ namespace My_program
         {
             Close_button.ForeColor = Color.Red;
         }
+
+        private void label2_MouseEnter(object sender, EventArgs e)
+        {
+            label2.ForeColor = Color.Yellow;
+        }
+
+        private void label2_MouseLeave(object sender, EventArgs e)
+        {
+            label2.ForeColor = Color.Red;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }
